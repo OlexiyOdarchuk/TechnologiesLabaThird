@@ -70,7 +70,7 @@ double calculateAverage(const int* arr, const int ARR_LENGTH){
     for (int i = 0; i < ARR_LENGTH; i++){
         sum += arr[i];
     }
-    return static_cast<double>(sum) / ARR_LENGTH;
+    return sum / ARR_LENGTH;
 }
 
 void sortArrMin(int* arr, const int ARR_LENGTH){
