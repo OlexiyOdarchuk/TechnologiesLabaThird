@@ -2,7 +2,7 @@
 
 constexpr int ARR_LENGTH = 5;
 
-void chooseOperation(char chose, bool &isCreate, int arr[ARR_LENGTH]);
+void chooseOperation(const char chose, bool &isCreate, int arr[ARR_LENGTH]);
 
 int main(){
 

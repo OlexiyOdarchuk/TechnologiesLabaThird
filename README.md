@@ -26,15 +26,47 @@
 
 ---
 
-## Код програми
+## Структура проєкту
 
-Код знаходиться в декількох файлах:
-- [main.cpp](main.cpp)
-- [array_operations.cpp](array_operations.cpp)
-- [array_operations.h](array_operations.h)
+Проєкт має кілька незалежних частин:
 
-Є ще й однофайловий варіант:
-- [onefile.cpp](onefile.cpp)
+-   `├── func/` — Реалізація з використанням процедурного підходу.
+-   `├── oop/` — Реалізація з використанням об'єктно-орієнтованого підходу.
+-   `├── onefile/` — Спрощені версії, де весь код міститься в одному файлі.
+
+## Збірка та запуск
+
+Кожен модуль (`func` та `oop`) має власний `Makefile` для зручної збірки.
+
+### Процедурна версія
+
+```bash
+cd func
+make
+./target/ArrayApp
+```
+
+### Об'єктно-орієнтована версія
+
+```bash
+cd oop
+make
+./target/ArrayApp
+```
+
+### Однофайлові версії
+
+Ці версії можна скомпілювати напряму:
+
+```bash
+# Процедурна
+g++ onefile/funcOneFile.cpp -o func_one_file
+./func_one_file
+
+# ООП
+g++ onefile/oopOneFile.cpp -o oop_one_file
+./oop_one_file
+```
 
 ## Скріншот роботи програми
 ![Screenshot](images/image.png)
