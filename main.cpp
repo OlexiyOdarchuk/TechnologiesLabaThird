@@ -1,12 +1,5 @@
 #include <iostream>
 
-void createArr(int* arr, const int ARR_LENGTH);
-void writeElements(const int* arr, const int ARR_LENGTH);
-int minElemArr(const int* arr, const int ARR_LENGTH);
-int maxElemArr(const int* arr, const int ARR_LENGTH);
-double calculateAverage(const int* arr, const int ARR_LENGTH);
-void sortArrMin(int* arr, const int ARR_LENGTH);
-void sortArrMax(int* arr, const int ARR_LENGTH);
 void chooseOperation(char chose, bool &isCreate, int* arr, const int ARR_LENGTH);
 
 int main(){
