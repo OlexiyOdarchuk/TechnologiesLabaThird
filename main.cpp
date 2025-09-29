@@ -1,12 +1,13 @@
 #include <iostream>
 
-void chooseOperation(char chose, bool &isCreate, int* arr, const int ARR_LENGTH);
+constexpr int ARR_LENGTH = 5;
+
+void chooseOperation(char chose, bool &isCreate, int arr[ARR_LENGTH]);
 
 int main(){
-    const int ARR_LENGTH = 5;
 
     bool isCreate{false};
-    int* arr{new int[ARR_LENGTH]};
+    int arr[ARR_LENGTH];
     char choose;
     std::cout << "ОПЕРАЦІЇ З МАСИВАМИ: " << std::endl << std::endl
               << "1) Ввести значення елементів масиву" << std::endl
@@ -21,16 +22,15 @@ int main(){
         std::cout << std::endl <<"Оберіть операцію (1-8): ";
         std::cin >> choose;
         if (choose != '8'){
-            chooseOperation(choose, isCreate, arr, ARR_LENGTH);
+            chooseOperation(choose, isCreate, arr);
         } else {
             std::cout << "Вихід..." << std::endl;
             break;
         }
     }
-    delete [] arr;
 }
 
-void createArr(int* arr, const int ARR_LENGTH){
+void createArr(int arr[ARR_LENGTH]){
     std::cout << "Введіть значення елементів масиву:" << std::endl;
     for (int i = 0; i < ARR_LENGTH; i++){
         std::cout << "Елемент " << i << ": ";
@@ -39,13 +39,13 @@ void createArr(int* arr, const int ARR_LENGTH){
     std::cout << "Масив на " << ARR_LENGTH << " елементів (0-" << ARR_LENGTH-1 << ") створено!" << std::endl;
 }
 
-void writeElements(const int* arr, const int ARR_LENGTH){
+void writeElements(const int arr[ARR_LENGTH]){
     for (int i = 0; i < ARR_LENGTH; i++){
         std::cout << "Елемент " << i << ": " << arr[i] << std::endl;
     }
 }
 
-int minElemArr(const int* arr, const int ARR_LENGTH){
+int minElemArr(const int arr[ARR_LENGTH]){
     int min{arr[0]};
     for(int i = 1; i < ARR_LENGTH; i++){
         if (min > arr[i]){
@@ -55,7 +55,7 @@ int minElemArr(const int* arr, const int ARR_LENGTH){
     return min;
 }
 
-int maxElemArr(const int* arr, const int ARR_LENGTH){
+int maxElemArr(const int arr[ARR_LENGTH]){
     int max{arr[0]};
     for(int i = 1; i < ARR_LENGTH; i++){
         if (max < arr[i]){
@@ -65,7 +65,7 @@ int maxElemArr(const int* arr, const int ARR_LENGTH){
     return max;
 }
 
-double calculateAverage(const int* arr, const int ARR_LENGTH){
+double calculateAverage(const int arr[ARR_LENGTH]){
     double sum{0};
     for (int i = 0; i < ARR_LENGTH; i++){
         sum += arr[i];
@@ -73,7 +73,7 @@ double calculateAverage(const int* arr, const int ARR_LENGTH){
     return sum / ARR_LENGTH;
 }
 
-void sortArrMin(int* arr, const int ARR_LENGTH){
+void sortArrMin(int arr[ARR_LENGTH]){
     for (int i = 0; i < ARR_LENGTH - 1; i++){
         for (int j = 0; j < ARR_LENGTH - i - 1; j++){
             if (arr[j] > arr[j + 1]){
@@ -83,7 +83,7 @@ void sortArrMin(int* arr, const int ARR_LENGTH){
     }
 }
 
-void sortArrMax(int* arr, const int ARR_LENGTH){
+void sortArrMax(int arr[ARR_LENGTH]){
     for (int i = 0; i < ARR_LENGTH - 1; i++){
         for (int j = 0; j < ARR_LENGTH - i - 1; j++){
             if (arr[j] < arr[j + 1]){
@@ -101,11 +101,11 @@ bool requireCreated(bool isCreate) {
     return true;
 }
 
-void chooseOperation(const char choose, bool &isCreate, int* arr, const int ARR_LENGTH){
+void chooseOperation(const char choose, bool &isCreate, int arr[ARR_LENGTH]){
     switch(choose){
         case '1':
         if (!isCreate){
-            createArr(arr , ARR_LENGTH);
+            createArr(arr);
             isCreate = true;
             break;
         }
@@ -115,29 +115,29 @@ void chooseOperation(const char choose, bool &isCreate, int* arr, const int ARR_
         }
     case '2':
         if (requireCreated(isCreate))
-            writeElements(arr, ARR_LENGTH);
+            writeElements(arr);
         break;
     case '3':
         if (requireCreated(isCreate))
-            std::cout << "Найменший елемент масиву: " << minElemArr(arr, ARR_LENGTH) << std::endl;
+            std::cout << "Найменший елемент масиву: " << minElemArr(arr) << std::endl;
         break;
     case '4':
         if (requireCreated(isCreate))
-            std::cout << "Найбільший елемент масиву: " << maxElemArr(arr, ARR_LENGTH) << std::endl;
+            std::cout << "Найбільший елемент масиву: " << maxElemArr(arr) << std::endl;
         break;
     case '5':
         if (requireCreated(isCreate))
-            std::cout << "Середнє арифметичне по елементах масиву: " << calculateAverage(arr, ARR_LENGTH) << std::endl;
+            std::cout << "Середнє арифметичне по елементах масиву: " << calculateAverage(arr) << std::endl;
         break;
     case '6':
         if (requireCreated(isCreate)){
-            sortArrMin(arr, ARR_LENGTH);
+            sortArrMin(arr);
             std::cout << "Масив відсортований успішно!" << std::endl;
         }
         break;
     case '7':
         if (requireCreated(isCreate)){
-            sortArrMax(arr, ARR_LENGTH);
+            sortArrMax(arr);
             std::cout << "Масив відсортований успішно!" << std::endl;
         }
         break;
