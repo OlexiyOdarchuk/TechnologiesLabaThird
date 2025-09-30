@@ -15,6 +15,12 @@ class ArrayOperations {
             return true;
         }
 
+        void swap(int& elem1, int& elem2) {
+            int temp = elem1;
+            elem1 = elem2;
+            elem2 = temp;
+        }
+
     public:
         void create() {
             if (isCreated) {
@@ -66,7 +72,7 @@ class ArrayOperations {
             for (int i = 0; i < ARR_LENGTH - 1; i++)
                 for (int j = 0; j < ARR_LENGTH - i - 1; j++)
                     if (arr[j] > arr[j + 1])
-                        std::swap(arr[j], arr[j + 1]);
+                        swap(arr[j], arr[j + 1]);
             std::cout << "Масив відсортовано за зростанням!" << std::endl;
         }
 
@@ -75,7 +81,7 @@ class ArrayOperations {
             for (int i = 0; i < ARR_LENGTH - 1; i++)
                 for (int j = 0; j < ARR_LENGTH - i - 1; j++)
                     if (arr[j] < arr[j + 1])
-                        std::swap(arr[j], arr[j + 1]);
+                        swap(arr[j], arr[j + 1]);
             std::cout << "Масив відсортовано за спаданням!" << std::endl;
         }
 };

@@ -51,12 +51,18 @@ void ArrayOperations::average() const {
     std::cout << "Середнє арифметичне: " << sum / ARR_LENGTH << std::endl;
 }
 
+void ArrayOperations::swap(int& elem1, int& elem2) {
+    int temp = elem1;
+    elem1 = elem2;
+    elem2 = temp;
+}
+
 void ArrayOperations::sortMin() {
     if (!checkCreated()) return;
     for (int i = 0; i < ARR_LENGTH - 1; i++)
         for (int j = 0; j < ARR_LENGTH - i - 1; j++)
             if (arr[j] > arr[j + 1])
-                std::swap(arr[j], arr[j + 1]);
+                swap(arr[j], arr[j + 1]);
     std::cout << "Масив відсортовано за зростанням!" << std::endl;
 }
 
@@ -65,6 +71,6 @@ void ArrayOperations::sortMax() {
     for (int i = 0; i < ARR_LENGTH - 1; i++)
         for (int j = 0; j < ARR_LENGTH - i - 1; j++)
             if (arr[j] < arr[j + 1])
-                std::swap(arr[j], arr[j + 1]);
+                swap(arr[j], arr[j + 1]);
     std::cout << "Масив відсортовано за спаданням!" << std::endl;
 }

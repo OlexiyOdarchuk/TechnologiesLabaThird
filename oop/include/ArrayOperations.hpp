@@ -9,6 +9,7 @@ private:
     bool isCreated{false};
 
     bool checkCreated() const;
+    void swap(int& elem1, int& elem2);
 
 public:
     void create();

@@ -1,4 +1,4 @@
-#include "array_operations.h"
+#include "array_operations.hpp"
 
 void createArr(int arr[ARR_LENGTH]){
     std::cout << "Введіть значення елементів масиву:" << std::endl;
@@ -43,11 +43,17 @@ double calculateAverage(const int arr[ARR_LENGTH]){
     return sum / ARR_LENGTH;
 }
 
+void swap(int& elem1, int& elem2) {
+    int temp = elem1;
+    elem1 = elem2;
+    elem2 = temp;
+}
+
 void sortArrMin(int arr[ARR_LENGTH]){
     for (int i = 0; i < ARR_LENGTH - 1; i++){
         for (int j = 0; j < ARR_LENGTH - i - 1; j++){
             if (arr[j] > arr[j + 1]){
-                std::swap(arr[j], arr[j+1]);
+                swap(arr[j], arr[j+1]);
             }
         }
     }
@@ -57,7 +63,7 @@ void sortArrMax(int arr[ARR_LENGTH]){
     for (int i = 0; i < ARR_LENGTH - 1; i++){
         for (int j = 0; j < ARR_LENGTH - i - 1; j++){
             if (arr[j] < arr[j + 1]){
-                std::swap(arr[j], arr[j+1]);
+                swap(arr[j], arr[j+1]);
             }
         }
     }
