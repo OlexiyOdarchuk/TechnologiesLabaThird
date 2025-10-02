@@ -3,9 +3,9 @@
 
 class ArrayApp {
 private:
-    ArrayOperations arrayOps;
-    void printMenu() const;
+  ArrayOperations arrayOps;
+  void printMenu() const;
 
 public:
-    void run();
+  void run();
 };
